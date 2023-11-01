@@ -23,9 +23,10 @@
       {% endif %}
       {% if site.social.github %}
       <a class="particles-icon" href="https://github.com/{{ site.social.github }}">{% include svg/github.svg %}</a>
+      {% if site.social.mail %
+      <a class="particles-icon" href="https://github.com/{{ site.social.mail }}">{% include svg/mail.svg %}</a>
       {% endif %}
       <a class="particles-icon" href="cv">{% include svg/cv-circled.svg %}</a>
-      <a class="particles-icon" href="https://github.com/{{ site.social.github }}">{% include svg/phone %}</a>
     </div>
   </div>
   <div class="particles-scroll">
