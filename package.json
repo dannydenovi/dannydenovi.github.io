@@ -1,0 +1,12 @@
+{
+  "name": "danny-denovi-cv",
+  "version": "1.0.0",
+  "description": "Personal CV website — content-driven static site",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js && echo 'Open docs/index.html in your browser'"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

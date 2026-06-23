@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danny De Novi — PhD Researcher in AI & Blockchain</title>
+<meta name="description" content="Building the intersection of trustworthy AI, blockchain certification, and distributed edge intelligence — now extending to orbital federated learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:      #0A0F1E;
+    --navy-card: #161D2F;
+    --violet:    #6C3BF5;
+    --violet-lt: #8B5CF6;
+    --cyan:      #00E5FF;
+    --cyan-dim:  rgba(0,229,255,0.15);
+    --white:     #F0F4FF;
+    --gray:      #8892A4;
+    --gray-dim:  #3A4358;
+    --fd:        'Space Grotesk', sans-serif;
+    --fb:        'Inter', sans-serif;
+    --fm:        'JetBrains Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--white); font-family: var(--fb); line-height: 1.65; overflow-x: hidden; }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--violet); border-radius: 3px; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 3rem; background: rgba(10,15,30,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(108,59,245,0.2); }
+  .nav-logo { font-family: var(--fd); font-weight: 700; font-size: 1.1rem; color: var(--white); text-decoration: none; letter-spacing: -.02em; }
+  .nav-logo span { color: var(--cyan); }
+  .nav-links { display: flex; gap: 1.6rem; list-style: none; }
+  .nav-links a { color: var(--gray); text-decoration: none; font-size: .8rem; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; transition: color .2s; }
+  .nav-links a:hover { color: var(--cyan); }
+
+  /* HERO */
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 8rem 3rem 4rem; overflow: hidden; }
+  #neural-canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .55; }
+  .hero-content { position: relative; z-index: 2; max-width: 820px; text-align: center; }
+  .hero-eyebrow { font-family: var(--fm); font-size: .8rem; color: var(--cyan); letter-spacing: .15em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: .75rem; }
+  .hero-eyebrow::before, .hero-eyebrow::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--cyan); opacity: .5; }
+  .hero-name { font-family: var(--fd); font-size: clamp(3rem,8vw,6rem); font-weight: 700; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 1rem; }
+  .hero-name .highlight { background: linear-gradient(135deg,var(--violet),var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-title { font-size: 1.1rem; color: var(--gray); max-width: 580px; margin: 0 auto 2.5rem; }
+  .hero-chips { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-bottom: 2.5rem; }
+  .chip { background: rgba(108,59,245,.12); border: 1px solid rgba(108,59,245,.35); color: var(--violet-lt); font-family: var(--fm); font-size: .72rem; padding: .3rem .8rem; border-radius: 100px; letter-spacing: .04em; transition: all .2s; }
+  .chip:hover { background: rgba(108,59,245,.25); border-color: var(--violet); }
+  .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn { padding: .75rem 2rem; border-radius: 8px; font-weight: 600; font-size: .9rem; text-decoration: none; transition: all .25s; cursor: pointer; font-family: var(--fb); border: none; display: inline-flex; align-items: center; gap: .5rem; }
+  .btn-primary { background: linear-gradient(135deg,var(--violet),#9B59F5); color:#fff; box-shadow: 0 0 24px rgba(108,59,245,.4); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(108,59,245,.6); }
+  .btn-outline { background: transparent; color: var(--cyan); border: 1.5px solid rgba(0,229,255,.5); }
+  .btn-outline:hover { background: var(--cyan-dim); border-color: var(--cyan); transform: translateY(-2px); }
+
+  /* SECTIONS */
+  section { padding: 5rem 3rem; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-family: var(--fm); font-size: .75rem; color: var(--cyan); letter-spacing: .15em; text-transform: uppercase; margin-bottom: .5rem; }
+  .section-title { font-family: var(--fd); font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 700; letter-spacing: -.025em; line-height: 1.1; margin-bottom: 1rem; }
+  .section-rule { width: 2rem; height: 3px; background: linear-gradient(90deg,var(--violet),var(--cyan)); border-radius: 2px; margin-bottom: 2.5rem; }
+  .section-divider { height: 1px; background: linear-gradient(90deg,transparent,var(--gray-dim),transparent); max-width: 1100px; margin: 0 auto; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; }
+  .about-photo-wrap { position: relative; }
+  .about-photo-wrap::before { content: ''; position: absolute; inset: -3px; background: linear-gradient(135deg,var(--violet),var(--cyan)); border-radius: 16px; z-index: 0; }
+  .about-photo-placeholder { position: relative; z-index: 1; background: var(--navy-card); border-radius: 14px; aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; }
+  .avatar-initials { font-family: var(--fd); font-size: 4rem; font-weight: 700; color: var(--violet-lt); opacity: .7; }
+  .about-links { display: flex; flex-direction: column; gap: .6rem; margin-top: 1.5rem; }
+  .about-link { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--gray); font-size: .875rem; transition: color .2s; }
+  .about-link:hover { color: var(--cyan); }
+  .about-link-icon { width: 18px; flex-shrink: 0; color: var(--violet-lt); }
+  .about-link-icon svg { width: 18px; height: 18px; }
+  .about-text p { color: var(--gray); margin-bottom: 1rem; font-size: .975rem; }
+  .about-text p strong { color: var(--white); font-weight: 500; }
+
+  /* RESEARCH */
+  .research-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 1.2rem; }
+  .research-card { background: var(--navy-card); border: 1px solid var(--gray-dim); border-radius: 12px; padding: 1.75rem; transition: all .3s; position: relative; overflow: hidden; }
+  .research-card::before { content: ''; position: absolute; inset: 0; opacity: 0; background: linear-gradient(135deg,rgba(108,59,245,.07),rgba(0,229,255,.05)); transition: opacity .3s; }
+  .research-card:hover { border-color: var(--violet); transform: translateY(-4px); }
+  .research-card:hover::before { opacity: 1; }
+  .research-icon { width: 44px; height: 44px; border-radius: 10px; margin-bottom: 1rem; background: rgba(108,59,245,.15); border: 1px solid rgba(108,59,245,.3); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+  .research-card h3 { font-family: var(--fd); font-weight: 600; font-size: 1rem; margin-bottom: .5rem; }
+  .research-card p { color: var(--gray); font-size: .85rem; line-height: 1.6; }
+
+  /* TIMELINE */
+  .timeline { display: flex; flex-direction: column; }
+  .timeline-item { display: flex; gap: 1.5rem; padding-bottom: 2.5rem; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-left { display: flex; flex-direction: column; align-items: center; }
+  .timeline-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; background: var(--violet); border: 2px solid var(--navy); animation: pulse-glow 2.5s infinite; }
+  .timeline-line { width: 1px; flex: 1; background: var(--gray-dim); margin-top: 4px; }
+  .timeline-item:last-child .timeline-line { display: none; }
+  .timeline-body { flex: 1; }
+  .timeline-year { font-family: var(--fm); font-size: .75rem; color: var(--cyan); margin-bottom: .25rem; }
+  .timeline-role { font-family: var(--fd); font-weight: 600; font-size: 1.05rem; margin-bottom: .15rem; }
+  .timeline-place { color: var(--violet-lt); font-size: .875rem; margin-bottom: .5rem; }
+  .timeline-desc { color: var(--gray); font-size: .875rem; }
+  .timeline-desc strong { color: var(--white); font-weight: 500; }
+
+  /* PUBLICATIONS */
+  .pub-list { display: flex; flex-direction: column; gap: 1rem; }
+  .pub-card { background: var(--navy-card); border: 1px solid var(--gray-dim); border-radius: 10px; padding: 1.25rem 1.5rem; display: flex; gap: 1rem; align-items: flex-start; transition: border-color .2s; }
+  .pub-card:hover { border-color: var(--violet); }
+  .pub-number { font-family: var(--fm); font-size: .85rem; color: var(--violet-lt); padding-top: 2px; flex-shrink: 0; min-width: 1.5rem; }
+  .pub-content { flex: 1; }
+  .pub-title { font-weight: 500; font-size: .925rem; margin-bottom: .3rem; line-height: 1.5; }
+  .pub-meta { font-size: .8rem; color: var(--gray); margin-bottom: .3rem; }
+  .pub-meta span { color: var(--cyan); font-family: var(--fm); font-size: .75rem; }
+  .pub-note { font-size: .72rem; font-family: var(--fm); background: rgba(0,229,255,.1); color: var(--cyan); border: 1px solid rgba(0,229,255,.25); border-radius: 4px; padding: .1rem .5rem; display: inline-block; margin-right: .3rem; }
+
+  /* SERVICE */
+  .service-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); gap: 1.1rem; }
+  .service-card { background: var(--navy-card); border: 1px solid var(--gray-dim); border-radius: 10px; padding: 1.1rem 1.4rem; transition: border-color .2s; }
+  .service-card:hover { border-color: var(--violet); }
+  .service-role { font-family: var(--fm); font-size: .7rem; color: var(--cyan); letter-spacing: .08em; text-transform: uppercase; margin-bottom: .35rem; }
+  .service-name { font-weight: 600; font-size: .9rem; margin-bottom: .2rem; }
+  .service-detail { color: var(--gray); font-size: .82rem; }
+  .service-link { color: var(--violet-lt); font-size: .8rem; text-decoration: none; display: inline-block; margin-top: .35rem; }
+  .service-link:hover { color: var(--cyan); }
+
+  /* CONFERENCES */
+  .conf-list { display: flex; flex-direction: column; gap: 1rem; }
+  .conf-card { background: var(--navy-card); border: 1px solid var(--gray-dim); border-radius: 10px; padding: 1.1rem 1.5rem; display: flex; gap: 1.2rem; align-items: flex-start; transition: border-color .2s; }
+  .conf-card:hover { border-color: var(--cyan); }
+  .conf-date { font-family: var(--fm); font-size: .72rem; color: var(--cyan); flex-shrink: 0; padding-top: 3px; min-width: 5.5rem; line-height: 1.5; }
+  .conf-content { flex: 1; }
+  .conf-name { font-weight: 600; font-size: .92rem; margin-bottom: .15rem; }
+  .conf-desc { color: var(--gray); font-size: .83rem; line-height: 1.55; }
+  .conf-tag { font-size: .7rem; font-family: var(--fm); background: rgba(0,229,255,.08); color: var(--cyan); border: 1px solid rgba(0,229,255,.2); border-radius: 4px; padding: .1rem .5rem; display: inline-block; margin-top: .35rem; margin-right: .3rem; }
+  .conf-link { color: var(--violet-lt); font-size: .8rem; text-decoration: none; display: inline-block; margin-top: .3rem; }
+  .conf-link:hover { color: var(--cyan); }
+
+  /* TEACHING */
+  .cultore-card { background: var(--navy-card); border: 1px solid rgba(108,59,245,.4); border-radius: 12px; padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; margin-bottom: 3rem; }
+  .cultore-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .cultore-label { font-family: var(--fm); font-size: .72rem; color: var(--cyan); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .35rem; }
+  .cultore-title { font-family: var(--fd); font-weight: 600; font-size: 1.05rem; margin-bottom: .25rem; }
+  .cultore-place { color: var(--violet-lt); font-size: .875rem; margin-bottom: .5rem; }
+  .cultore-desc { color: var(--gray); font-size: .875rem; }
+  .thesis-grid { display: flex; flex-direction: column; gap: .9rem; }
+  .thesis-card { background: var(--navy-card); border: 1px solid var(--gray-dim); border-radius: 10px; padding: 1.1rem 1.4rem; display: flex; gap: 1.2rem; align-items: flex-start; transition: border-color .2s; }
+  .thesis-card:hover { border-color: var(--violet); }
+  .thesis-year { font-family: var(--fm); font-size: .75rem; color: var(--cyan); flex-shrink: 0; padding-top: 3px; min-width: 2.5rem; }
+  .thesis-content { flex: 1; }
+  .thesis-student { font-weight: 600; font-size: .9rem; margin-bottom: .15rem; }
+  .thesis-topic { color: var(--gray); font-size: .85rem; line-height: 1.55; }
+  .thesis-badge { font-size: .7rem; font-family: var(--fm); background: rgba(108,59,245,.12); color: var(--violet-lt); border: 1px solid rgba(108,59,245,.3); border-radius: 4px; padding: .1rem .5rem; display: inline-block; margin-top: .35rem; }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 1.5rem; }
+  .skill-group h4 { font-family: var(--fm); font-size: .7rem; color: var(--cyan); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .75rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .skill-tag { background: rgba(255,255,255,.04); border: 1px solid var(--gray-dim); color: var(--gray); font-size: .8rem; padding: .25rem .7rem; border-radius: 6px; }
+
+  /* CONTACT */
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item { display: flex; gap: .85rem; align-items: flex-start; }
+  .contact-icon { width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0; background: rgba(108,59,245,.12); border: 1px solid rgba(108,59,245,.3); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+  .contact-item h4 { font-size: .8rem; color: var(--gray); text-transform: uppercase; letter-spacing: .08em; font-family: var(--fm); }
+  .contact-item a { color: var(--white); text-decoration: none; font-size: .95rem; transition: color .2s; }
+  .contact-item a:hover { color: var(--cyan); }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: .35rem; }
+  .form-group label { font-size: .8rem; color: var(--gray); font-weight: 500; }
+  .form-group input, .form-group textarea { background: var(--navy-card); border: 1px solid var(--gray-dim); color: var(--white); font-family: var(--fb); font-size: .9rem; padding: .75rem 1rem; border-radius: 8px; outline: none; resize: vertical; transition: border-color .2s; }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: var(--gray-dim); }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--violet); box-shadow: 0 0 0 3px rgba(108,59,245,.12); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-status { font-size: .85rem; text-align: center; padding: .5rem; border-radius: 6px; display: none; }
+  .form-status.success { background: rgba(0,229,255,.1); color: var(--cyan); display: block; }
+  .form-status.error { background: rgba(245,59,59,.1); color: #f87171; display: block; }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--gray-dim); padding: 2rem 3rem; text-align: center; color: var(--gray); font-size: .8rem; }
+  footer a { color: var(--violet-lt); text-decoration: none; }
+  footer a:hover { color: var(--cyan); }
+
+  /* ANIMATIONS */
+  @keyframes pulse-glow { 0%,100% { box-shadow: 0 0 8px rgba(108,59,245,.7); } 50% { box-shadow: 0 0 22px rgba(0,229,255,.9),0 0 8px rgba(108,59,245,.7); } }
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s ease,transform .6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width:768px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-links { display: none; }
+    section { padding: 3.5rem 1.25rem; }
+    .about-grid, .contact-wrap { grid-template-columns: 1fr; }
+    .about-photo-wrap { max-width: 220px; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero { padding: 7rem 1.25rem 3rem; }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .fade-in { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Danny<span>.</span>DeNovi</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#education">Experience</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#service">Service</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <canvas id="neural-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-eyebrow">PhD Researcher · University of Messina & Pisa</div>
+    <h1 class="hero-name">Danny<br><span class="highlight">De Novi</span></h1>
+    <p class="hero-title">Building the intersection of trustworthy AI, blockchain certification, and distributed edge intelligence — now extending to orbital federated learning.</p>
+    <div class="hero-chips">
+      <span class="chip">Machine Learning</span>
+      <span class="chip">Blockchain</span>
+      <span class="chip">Edge Computing</span>
+      <span class="chip">Federated Learning</span>
+      <span class="chip">Cloud-Edge Continuum</span>
+      <span class="chip">Orbital FL</span>
+      <span class="chip">FaaS</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Get in Touch</a>
+      <a href="#publications" class="btn btn-outline">View Publications</a>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="fade-in">
+    <p class="section-label">// About me</p>
+    <h2 class="section-title">AI Researcher,<br>Engineer &amp; Builder</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="about-grid fade-in">
+    <div>
+      <div class="about-photo-wrap">
+        <div class="about-photo-placeholder">
+          <div class="avatar-initials">DDN</div>
+        </div>
+      </div>
+      <div class="about-links">
+        
+        <a href="mailto:dadenovi@unime.it"  class="about-link">
+          <span class="about-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></span>
+          dadenovi@unime.it
+        </a>
+        <a href="https://t.me/dannydenovi" target="_blank" class="about-link">
+          <span class="about-link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.11 14.6 4.17 13.7c-.646-.203-.658-.646.136-.958l11.21-4.322c.538-.194 1.01.132.838.958z"/></svg></span>
+          @dannydenovi
+        </a>
+        <a href="https://github.com/dannydenovi" target="_blank" class="about-link">
+          <span class="about-link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.113.793-.258.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></span>
+          github.com/dannydenovi
+        </a>
+        <a href="https://orcid.org/0009-0004-0423-7280" target="_blank" class="about-link">
+          <span class="about-link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947-.947-.431-.947-.947.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.853 3.872-3.722 0-2.016-1.284-3.722-3.884-3.722h-2.285z"/></svg></span>
+          ORCID: 0009-0004-0423-7280
+        </a>
+        <a href="https://x.com/Danny_DeNovi" target="_blank" class="about-link">
+          <span class="about-link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835-8.16-10.665h6.008l4.262 5.633 5.656-5.633zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></span>
+          @Danny_DeNovi
+        </a>
+        <a href="https://fcrlab.unime.it/author/danny-de-novi/" target="_blank" class="about-link">
+          <span class="about-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
+          FCRLab @ UniME
+        </a>
+        <a href="https://scholar.google.com/citations?user=nkKuHI0AAAAJ" target="_blank" class="about-link">
+          <span class="about-link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z"/></svg></span>
+          Google Scholar
+        </a>
+      </div>
+    </div>
+    <div class="about-text">
+      <p>I'm a <strong>PhD Student in Artificial Intelligence for Society</strong> at the Universities of Messina and Pisa (National PhD Programme in AI, MUR), affiliated with the <strong>Future Computing Research Laboratory (FCRLab)</strong> at UniME.</p>
+      <p>I hold an <strong>MSc in Data Science (110/110 cum laude)</strong> and a <strong>BSc in Computer Science (108/110)</strong>, both from the University of Messina. My MSc thesis introduced a real-time digital regulatory approval framework for Agile Pharmaceutical Manufacturing using AI and Blockchain.</p>
+      <p>My research lives at the crossroads of machine learning optimization, blockchain-based data certification, and trustworthy AI. I'm currently extending this work toward <strong>Orbital Federated Learning</strong> — applying distributed learning paradigms to satellite and space-edge nodes to enable verifiable AI in constrained orbital environments.</p>
+      <p>In 2025 this work was funded by the European project <strong>Neurokit2E</strong>. I also collaborate with <strong>Circular Protocol</strong> (Boston) on blockchain certification for decentralised manufacturing workflows.</p>
+      <p>Born 29 Aug 2000. Based in Messina, Italy. Drone pilot (EU A1/A3). Pianist and guitarist.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="research">
+  <div class="fade-in">
+    <p class="section-label">// Research areas</p>
+    <h2 class="section-title">What I Work On</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="research-grid">
+    
+      <div class="research-card fade-in">
+        <div class="research-icon">🧠</div>
+        <h3>ML Model Compression</h3>
+        <p>Pruning, quantization (QaaS), and KAN networks to reduce the computational footprint of neural networks while preserving predictive accuracy for edge and IoT deployment.</p>
+      </div>
+      <div class="research-card fade-in">
+        <div class="research-icon">🌐</div>
+        <h3>Cloud-Edge Continuum</h3>
+        <p>Adaptive inference, FaaS architectures built on OpenFaaS + Kubernetes, and context-aware model distribution across cloud, edge, and IoT layers.</p>
+      </div>
+      <div class="research-card fade-in">
+        <div class="research-icon">🛸</div>
+        <h3>Orbital Federated Learning</h3>
+        <p>Extending federated learning paradigms to satellite and space-edge nodes — enabling privacy-preserving, energy-efficient, and verifiable AI in orbital environments.</p>
+      </div>
+      <div class="research-card fade-in">
+        <div class="research-icon">⛓️</div>
+        <h3>Blockchain for AI Certification</h3>
+        <p>Cryptographically verifiable AI pipelines, provenance tracking and immutable data certification. Every model inference — auditable and ethically accountable.</p>
+      </div>
+      <div class="research-card fade-in">
+        <div class="research-icon">📈</div>
+        <h3>AIOps & Telemetry Forecasting</h3>
+        <p>Temporal Transformer models pretrained on Azure VM data and fine-tuned on Alibaba container workloads for real-time CPU/GPU/memory prediction and anomaly detection.</p>
+      </div>
+      <div class="research-card fade-in">
+        <div class="research-icon">🏭</div>
+        <h3>Digital Manufacturing</h3>
+        <p>Decentralized architectures for pharmaceutical certification and industrial data traceability — from smart contract design to compliance-ready data exchange in regulated environments.</p>
+      </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="education">
+  <div class="fade-in">
+    <p class="section-label">// Education &amp; Experience</p>
+    <h2 class="section-title">Academic &amp; Professional Path</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="timeline fade-in">
+    
+      <div class="timeline-item">
+        <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+        <div class="timeline-body">
+          <div class="timeline-year">Nov 2025 – Present · Pisa, Italy</div>
+          <div class="timeline-role">National PhD Programme in AI for Society</div>
+          <div class="timeline-place">MUR — Universities of Messina & Pisa · EQF Level 8</div>
+          <div class="timeline-desc">Researching cloud-edge AI, spatio-temporal forecasting, orbital federated learning, and blockchain-based certification of AI processes. Affiliated with FCRLab @ UniME.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+        <div class="timeline-body">
+          <div class="timeline-year">Jul 2025 – Oct 2025 · Phoenix, USA</div>
+          <div class="timeline-role">Blockchain Architect</div>
+          <div class="timeline-place">International research collaboration</div>
+          <div class="timeline-desc">Designed and implemented blockchain integration within a real-time pharmaceutical production environment, enhancing traceability, data integrity and process transparency across complex workflows. Built decentralized architectures and smart contracts for secure, compliant, and auditable data exchange in regulated settings.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+        <div class="timeline-body">
+          <div class="timeline-year">Mar 2025 – Oct 2025 · Messina, Italy</div>
+          <div class="timeline-role">Research Fellow — European Project Neurokit2E</div>
+          <div class="timeline-place">University of Messina, FCRLab</div>
+          <div class="timeline-desc">Scientific research on ML for edge/embedded devices: quantization, pruning (PyTorch, TensorFlow-Keras), anomaly detection via Transformer models and KAN (Kolmogorov–Arnold Networks).</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+        <div class="timeline-body">
+          <div class="timeline-year">Jul 2024 – Present · Boston, USA</div>
+          <div class="timeline-role">Blockchain Developer / Architect</div>
+          <div class="timeline-place">Circular Protocol</div>
+          <div class="timeline-desc">Designed the SDK (Java, PHP, Python, JS/Node.js) for the Circular Protocol Layer 1 blockchain, enabling transaction management, smart contract lifecycle, on-chain read/write and network monitoring. Contributed to decentralized architecture design for dApp integration and traditional backend systems. Built iStamp.app — a web portal for blockchain-based data notarization and timestamping with cryptographic hash, digital signature, and public verification.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+        <div class="timeline-body">
+          <div class="timeline-year">Mar 2024 – Aug 2024 · Messina, Italy</div>
+          <div class="timeline-role">Research Fellow — Smart Cities & MaaS</div>
+          <div class="timeline-place">University of Messina, FCRLab</div>
+          <div class="timeline-desc">Distributed deployment of SQL/NoSQL databases with Docker and Kubernetes, backend/frontend (Drupal), API development in Go and PHP, and Flutter mobile app maintenance for public transportation MaaS systems.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+        <div class="timeline-body">
+          <div class="timeline-year">2023 – 2025 · Messina, Italy</div>
+          <div class="timeline-role">MSc in Data Science — 110/110 Cum Laude</div>
+          <div class="timeline-place">University of Messina · EQF Level 7</div>
+          <div class="timeline-desc">Thesis: <em>Real-time digital regulatory approval framework for Agile Pharmaceutical Manufacturing using AI and Blockchain.</em> Courses: Advanced ML, Big Data, Blockchain & Data Security, HPC, Bio-inspired AI, Bioinformatics.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+        <div class="timeline-body">
+          <div class="timeline-year">Oct 2022 – Jan 2023 · Messina, Italy</div>
+          <div class="timeline-role">Curricular Internship</div>
+          <div class="timeline-place">University of Messina — MIFT Department</div>
+          <div class="timeline-desc">Project: Collision detection and prevention systems for autonomous robotic machines.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+        <div class="timeline-body">
+          <div class="timeline-year">Oct 2018 – Aug 2022 · Messina, Italy</div>
+          <div class="timeline-role">Fullstack Developer & Project Manager</div>
+          <div class="timeline-place">Mifra SRL</div>
+          <div class="timeline-desc">Led a small IT division. Stack: Swift/SwiftUI (iOS), Laravel/PHP, JavaScript, MySQL, MongoDB, Python, Bash on Raspberry Pi, Docker, Kubernetes, VMware ESXi. Managed team coordination via Slack, JetBrains Space, Nextcloud.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+        <div class="timeline-body">
+          <div class="timeline-year">2020 – 2023 · Messina, Italy</div>
+          <div class="timeline-role">BSc in Computer Science — 108/110</div>
+          <div class="timeline-place">University of Messina · EQF Level 6</div>
+          <div class="timeline-desc">Thesis: <em>Reinforcement Learning for autonomous driving — comparison of PPO, DQN and DDQN in 2D and 3D environments.</em> Courses: AI, OOP, Distributed Systems, Networks, Algorithms & Data Structures, OS, Web & Mobile.</div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="publications">
+  <div class="fade-in">
+    <p class="section-label">// Publications</p>
+    <h2 class="section-title">Research Output</h2>
+    <div class="section-rule"></div>
+    <p style="color:var(--gray);font-size:.9rem;margin-bottom:1.5rem;">
+      Full list on <a href="https://scholar.google.com/citations?user=nkKuHI0AAAAJ" target="_blank" style="color:var(--violet-lt);text-decoration:none;">Google Scholar</a>
+      &amp; <a href="https://orcid.org/0009-0004-0423-7280" target="_blank" style="color:var(--violet-lt);text-decoration:none;">ORCID</a>.
+    </p>
+  </div>
+  <div class="pub-list fade-in">
+    
+      <div class="pub-card">
+        <div class="pub-number">01</div>
+        <div class="pub-content">
+          <div class="pub-title">A Serverless Quantization-as-a-Service Model to Run Compression Jobs for Edge Intelligence</div>
+          <div class="pub-meta">De Novi D., Dell'Acqua P., Carnevale L., Fazio M., Villari M. &nbsp;<span>IEEE ISCC 2025</span></div>
+          <span class="pub-note">Edge AI</span> <span class="pub-note">FaaS</span> <span class="pub-note">Quantization</span>
+        </div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-number">02</div>
+        <div class="pub-content">
+          <div class="pub-title">Predictive Resource Management in the Computing Continuum: Transfer Learning from Virtual Machines to Containers using Transformers</div>
+          <div class="pub-meta">De Novi D., Carnevale L., Balouek D., Parashar M., Villari M. &nbsp;<span>IEEE/ACM UCC 2025</span></div>
+          <span class="pub-note">AIOps</span> <span class="pub-note">Transformers</span> <span class="pub-note">Transfer Learning</span>
+        </div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-number">03</div>
+        <div class="pub-content">
+          <div class="pub-title">Evaluation of a Task Offloading Simulator for Edge Resource Management: Comparison of Reinforcement Learning Algorithms</div>
+          <div class="pub-meta">De Novi D., Carnevale L., Shikur K.A., Villari M. &nbsp;<span>ACM GreenSys Workshop 2026</span></div>
+          <span class="pub-note">Reinforcement Learning</span> <span class="pub-note">Edge</span> <span class="pub-note">Task Offloading</span>
+        </div>
+      </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="service">
+  <div class="fade-in">
+    <p class="section-label">// Academic service</p>
+    <h2 class="section-title">Reviewing &amp; Program Committees</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="service-grid fade-in">
+    
+      <div class="service-card">
+        <div class="service-role">Technical Program Committee</div>
+        <div class="service-name">IEEE ISCC 2026</div>
+        <div class="service-detail">IEEE Symposium on Computers and Communications 2026</div>
+        
+      </div>
+      <div class="service-card">
+        <div class="service-role">Technical Program Committee</div>
+        <div class="service-name">BDCAT 2025</div>
+        <div class="service-detail">IEEE/ACM International Conference on Big Data Computing, Applications and Technologies</div>
+        <a href="https://bdcat-conference.org/" target="_blank" class="service-link">bdcat-conference.org ↗</a>
+      </div>
+      <div class="service-card">
+        <div class="service-role">Technical Program Committee</div>
+        <div class="service-name">IEEE EAIS 2026</div>
+        <div class="service-detail">IEEE International Conference on Evolving and Adaptive Intelligent Systems 2026</div>
+        
+      </div>
+      <div class="service-card">
+        <div class="service-role">Reviewer</div>
+        <div class="service-name">Elsevier Pattern Recognition</div>
+        <div class="service-detail">International journal on pattern recognition and machine intelligence</div>
+        
+      </div>
+      <div class="service-card">
+        <div class="service-role">Reviewer</div>
+        <div class="service-name">IEEE Transactions on Mobile Computing</div>
+        <div class="service-detail">IEEE flagship journal for mobile computing research</div>
+        
+      </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="conferences">
+  <div class="fade-in">
+    <p class="section-label">// Conferences &amp; Events</p>
+    <h2 class="section-title">Talks &amp; Participation</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="conf-list fade-in">
+    
+      <div class="conf-card">
+        <div class="conf-date">Jun 2026<br>Baratti, IT</div>
+        <div class="conf-content">
+          <div class="conf-name">SoBigData Summer School 2026</div>
+          <div class="conf-desc">Fourth International SoBigData Summer School — <em>Data Analysis and AI in Sport, Health and Wellbeing.</em> Four themed days covering healthcare AI, sport analytics, agentic AI, and privacy/fairness. Baratti (Piombino), Tuscany. Supported by the Italian National PhD Programme in AI.</div>
+          <span class="conf-tag">Participant</span>
+          <a href="https://summerschool2026.sobigdata.eu/" target="_blank" class="conf-link">https://summerschool2026.sobigdata.eu/ ↗</a>
+        </div>
+      </div>
+      <div class="conf-card">
+        <div class="conf-date">Feb 2026<br>TEMA GA</div>
+        <div class="conf-content">
+          <div class="conf-name">TEMA Project — General Assembly</div>
+          <div class="conf-desc">Talk on intelligent scheduling systems on Kubernetes powered by machine learning for task optimization and carbon footprint reduction, during the General Assembly of the European TEMA Project.</div>
+          <span class="conf-tag">Invited Talk</span><span class="conf-tag">ML · Sustainability</span>
+          
+        </div>
+      </div>
+      <div class="conf-card">
+        <div class="conf-date">Dec 2025<br>Neurokit2E GA</div>
+        <div class="conf-content">
+          <div class="conf-name">Neurokit2E — General Assembly</div>
+          <div class="conf-desc">Talk on machine learning model reduction pipelines for the deployment of intelligent edge systems. Results of the quantization and pruning research within the EU Neurokit2E project.</div>
+          <span class="conf-tag">Invited Talk</span><span class="conf-tag">Edge AI · Compression</span>
+          
+        </div>
+      </div>
+      <div class="conf-card">
+        <div class="conf-date">2025<br>IEEE ISCC</div>
+        <div class="conf-content">
+          <div class="conf-name">IEEE Symposium on Computers and Communications (ISCC) 2025</div>
+          <div class="conf-desc">Paper presentation: <em>A Serverless Quantization-as-a-Service Model to Run Compression Jobs for Edge Intelligence.</em> Also serving on the Technical Program Committee for ISCC 2026.</div>
+          <span class="conf-tag">Paper Presentation</span><span class="conf-tag">TPC 2026</span>
+          
+        </div>
+      </div>
+      <div class="conf-card">
+        <div class="conf-date">2025<br>IEEE/ACM UCC</div>
+        <div class="conf-content">
+          <div class="conf-name">IEEE/ACM International Conference on Utility and Cloud Computing (UCC '25)</div>
+          <div class="conf-desc">Paper presentation: <em>Predictive Resource Management in the Computing Continuum: Transfer Learning from Virtual Machines to Containers using Transformers.</em></div>
+          <span class="conf-tag">Paper Presentation</span><span class="conf-tag">Cloud · AI</span>
+          
+        </div>
+      </div>
+      <div class="conf-card">
+        <div class="conf-date">Jul 2023<br>Messina, IT</div>
+        <div class="conf-content">
+          <div class="conf-name">Discipulus Peloritanus — School of Excellence</div>
+          <div class="conf-desc">Intensive programme on ICT and Innovative Transport Systems at the University of Messina. Focus on Intelligent Transport Systems, autonomous vehicles, smart roads and the normative and ethical implications of advanced mobility solutions.</div>
+          <span class="conf-tag">Excellence Programme</span>
+          
+        </div>
+      </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="teaching">
+  <div class="fade-in">
+    <p class="section-label">// Teaching &amp; Supervision</p>
+    <h2 class="section-title">Teaching &amp; Thesis Supervision</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="fade-in">
+    <div class="cultore-card">
+      <div class="cultore-icon">🎓</div>
+      <div>
+        <div class="cultore-label">Cultore della Materia · A.A. 2026/27 – 2028/29</div>
+        <div class="cultore-title">Algoritmi e Strutture Dati</div>
+        <div class="cultore-place">University of Messina — Department of Engineering</div>
+        <div class="cultore-desc">Recognised expert for three consecutive academic years. Involved in teaching support, examination commissions, and student tutoring.</div>
+      </div>
+    </div>
+  </div>
+  <div class="fade-in">
+    <p style="color:var(--gray);font-size:.875rem;margin-bottom:1.25rem;">Students I have co-supervised or supported in their thesis work:</p>
+    <div class="thesis-grid">
+      
+          <div class="thesis-card">
+            <div class="thesis-year">2025</div>
+            <div class="thesis-content">
+              <div class="thesis-student">Student Name</div>
+              <div class="thesis-topic">Thesis topic — replace with actual student name and topic.</div>
+              <div class="thesis-badge">MSc</div>
+            </div>
+          </div>
+          <div class="thesis-card">
+            <div class="thesis-year">2025</div>
+            <div class="thesis-content">
+              <div class="thesis-student">Student Name</div>
+              <div class="thesis-topic">Thesis topic — replace with actual student name and topic.</div>
+              <div class="thesis-badge">BSc</div>
+            </div>
+          </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section>
+  <div class="fade-in">
+    <p class="section-label">// Tech stack</p>
+    <h2 class="section-title">Skills &amp; Tools</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="skills-grid fade-in">
+    
+      <div class="skill-group">
+        <h4>Machine Learning</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">Transformers</span>
+          <span class="skill-tag">KAN Networks</span>
+          <span class="skill-tag">Pruning</span>
+          <span class="skill-tag">Quantization</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Distributed Systems</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Kubernetes / K3S</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">OpenFaaS</span>
+          <span class="skill-tag">VMware ESXi</span>
+          <span class="skill-tag">Edge AI</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Blockchain</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Ethereum</span>
+          <span class="skill-tag">Solidity</span>
+          <span class="skill-tag">Smart Contracts</span>
+          <span class="skill-tag">Circular Protocol</span>
+          <span class="skill-tag">Web3.py</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Languages</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Swift / SwiftUI</span>
+          <span class="skill-tag">Go</span>
+          <span class="skill-tag">PHP / Laravel</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Fortran 77</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Data & Cloud</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Neo4J</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">Raspberry Pi</span>
+          <span class="skill-tag">CoppeliaSim</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Human Languages</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Italian (native)</span>
+          <span class="skill-tag">English (C1)</span>
+          <span class="skill-tag">Latin (B1)</span>
+          <span class="skill-tag">French (A2)</span>
+        </div>
+      </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="contact">
+  <div class="fade-in">
+    <p class="section-label">// Get in touch</p>
+    <h2 class="section-title">Let's Connect</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="contact-wrap fade-in">
+    <div class="contact-info">
+      <p style="color:var(--gray);font-size:.925rem;margin-bottom:.5rem;">Open to collaborations on research in secure, reproducible, and sustainable AI — or a conversation about distributed intelligence, orbital FL, or blockchain certification.</p>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div><h4>Email</h4><a href="mailto:dadenovi@unime.it">dadenovi@unime.it</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">💬</div>
+        <div><h4>Telegram</h4><a href="https://t.me/dannydenovi" target="_blank">@dannydenovi</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🐙</div>
+        <div><h4>GitHub</h4><a href="https://github.com/dannydenovi" target="_blank">github.com/dannydenovi</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🎓</div>
+        <div><h4>Scholar</h4><a href="https://scholar.google.com/citations?user=nkKuHI0AAAAJ" target="_blank">Google Scholar Profile</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🔬</div>
+        <div><h4>Lab</h4><a href="https://fcrlab.unime.it/author/danny-de-novi/" target="_blank">FCRLab @ UniME</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🌐</div>
+        <div><h4>Project</h4><a href="https://istamp.app" target="_blank">iStamp.app</a></div>
+      </div>
+    </div>
+    <form class="contact-form" id="contact-form" action="https://formspree.io/f/xpwryaod" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Collaboration, question, etc.">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
+      </div>
+      <input type="hidden" name="_replyto" value="dadenovi@unime.it">
+      <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Message →</button>
+      <div class="form-status" id="form-status"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>Danny De Novi © 2026 · PhD Researcher @ <a href="https://fcrlab.unime.it" target="_blank">FCRLab, UniME</a> · <a href="https://istamp.app" target="_blank">iStamp.app</a></p>
+</footer>
+
+<script>
+(function(){
+  const canvas=document.getElementById('neural-canvas'),ctx=canvas.getContext('2d');
+  let W,H,nodes;const mouse={x:-999,y:-999},N=60,MD=165;
+  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;if(!nodes)init();}
+  function init(){nodes=Array.from({length:N},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.42,vy:(Math.random()-.5)*.42,r:Math.random()*2.2+1.2,t:Math.random()>.4?'v':'c'}));}
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const a=nodes[i],b=nodes[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<MD){const al=(1-d/MD)*.35,g=ctx.createLinearGradient(a.x,a.y,b.x,b.y);g.addColorStop(0,`rgba(108,59,245,${al})`);g.addColorStop(1,`rgba(0,229,255,${al*.6})`);ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=g;ctx.lineWidth=1;ctx.stroke();}
+      }
+      const mdx=nodes[i].x-mouse.x,mdy=nodes[i].y-mouse.y,md=Math.sqrt(mdx*mdx+mdy*mdy);
+      if(md<180){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(mouse.x,mouse.y);ctx.strokeStyle=`rgba(0,229,255,${(1-md/180)*.6})`;ctx.lineWidth=1.2;ctx.stroke();}
+    }
+    for(const n of nodes){
+      const mdx=n.x-mouse.x,mdy=n.y-mouse.y,p=Math.max(0,1-Math.sqrt(mdx*mdx+mdy*mdy)/180);
+      ctx.beginPath();ctx.arc(n.x,n.y,n.r+p*2,0,Math.PI*2);ctx.fillStyle=n.t==='v'?`rgba(108,59,245,${.7+p*.3})`:`rgba(0,229,255,${.6+p*.4})`;ctx.fill();
+      ctx.beginPath();ctx.arc(n.x,n.y,(n.r+p*2)*2.5,0,Math.PI*2);ctx.fillStyle=n.t==='v'?`rgba(108,59,245,${.05+p*.1})`:`rgba(0,229,255,${.04+p*.1})`;ctx.fill();
+      n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;
+    }
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('mousemove',e=>{const r=canvas.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
+  window.addEventListener('resize',resize);resize();draw();
+})();
+(function(){
+  const els=document.querySelectorAll('.fade-in');
+  const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target);}});},{threshold:.08});
+  els.forEach(el=>obs.observe(el));
+})();
+(function(){
+  const form=document.getElementById('contact-form'),status=document.getElementById('form-status');
+  if(!form)return;
+  form.addEventListener('submit',async(e)=>{
+    e.preventDefault();const btn=form.querySelector('button[type=submit]');
+    btn.textContent='Sending…';btn.disabled=true;
+    try{const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+      if(res.ok){status.className='form-status success';status.textContent='✓ Message sent! I'll get back to you soon.';form.reset();}else throw new Error();}
+    catch{status.className='form-status error';status.textContent='✗ Something went wrong. Please email dadenovi@unime.it directly.';}
+    btn.textContent='Send Message →';btn.disabled=false;});
+})();
+</script>
+</body>
+</html>

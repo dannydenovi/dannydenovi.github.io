@@ -1,0 +1,239 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# content.yaml  —  Danny De Novi's CV website content
+# Edit this file and push to GitHub → the site rebuilds automatically.
+# ─────────────────────────────────────────────────────────────────────────────
+
+meta:
+  name: "Danny De Novi"
+  title: "PhD Researcher in AI & Blockchain"
+  description: "Building the intersection of trustworthy AI, blockchain certification, and distributed edge intelligence — now extending to orbital federated learning."
+  url: "https://dannydenovi.github.io"   # change to your actual GitHub Pages URL
+
+hero:
+  eyebrow: "PhD Researcher · University of Messina & Pisa"
+  name_line1: "Danny"
+  name_line2: "De Novi"
+  subtitle: "Building the intersection of trustworthy AI, blockchain certification, and distributed edge intelligence — now extending to orbital federated learning."
+  chips:
+    - Machine Learning
+    - Blockchain
+    - Edge Computing
+    - Federated Learning
+    - Cloud-Edge Continuum
+    - Orbital FL
+    - FaaS
+
+about:
+  bio:
+    - "I'm a **PhD Student in Artificial Intelligence for Society** at the Universities of Messina and Pisa (National PhD Programme in AI, MUR), affiliated with the **Future Computing Research Laboratory (FCRLab)** at UniME."
+    - "I hold an **MSc in Data Science (110/110 cum laude)** and a **BSc in Computer Science (108/110)**, both from the University of Messina. My MSc thesis introduced a real-time digital regulatory approval framework for Agile Pharmaceutical Manufacturing using AI and Blockchain."
+    - "My research lives at the crossroads of machine learning optimization, blockchain-based data certification, and trustworthy AI. I'm currently extending this work toward **Orbital Federated Learning** — applying distributed learning paradigms to satellite and space-edge nodes to enable verifiable AI in constrained orbital environments."
+    - "In 2025 this work was funded by the European project **Neurokit2E**. I also collaborate with **Circular Protocol** (Boston) on blockchain certification for decentralised manufacturing workflows."
+    - "Born 29 Aug 2000. Based in Messina, Italy. Drone pilot (EU A1/A3). Pianist and guitarist."
+  links:
+    - label: "dadenovi@unime.it"
+      url: "mailto:dadenovi@unime.it"
+      icon: email
+    - label: "@dannydenovi"
+      url: "https://t.me/dannydenovi"
+      icon: telegram
+    - label: "github.com/dannydenovi"
+      url: "https://github.com/dannydenovi"
+      icon: github
+    - label: "ORCID: 0009-0004-0423-7280"
+      url: "https://orcid.org/0009-0004-0423-7280"
+      icon: orcid
+    - label: "@Danny_DeNovi"
+      url: "https://x.com/Danny_DeNovi"
+      icon: x
+    - label: "FCRLab @ UniME"
+      url: "https://fcrlab.unime.it/author/danny-de-novi/"
+      icon: lab
+    - label: "Google Scholar"
+      url: "https://scholar.google.com/citations?user=nkKuHI0AAAAJ"
+      icon: scholar
+
+research:
+  - icon: "🧠"
+    title: "ML Model Compression"
+    description: "Pruning, quantization (QaaS), and KAN networks to reduce the computational footprint of neural networks while preserving predictive accuracy for edge and IoT deployment."
+  - icon: "🌐"
+    title: "Cloud-Edge Continuum"
+    description: "Adaptive inference, FaaS architectures built on OpenFaaS + Kubernetes, and context-aware model distribution across cloud, edge, and IoT layers."
+  - icon: "🛸"
+    title: "Orbital Federated Learning"
+    description: "Extending federated learning paradigms to satellite and space-edge nodes — enabling privacy-preserving, energy-efficient, and verifiable AI in orbital environments."
+  - icon: "⛓️"
+    title: "Blockchain for AI Certification"
+    description: "Cryptographically verifiable AI pipelines, provenance tracking and immutable data certification. Every model inference — auditable and ethically accountable."
+  - icon: "📈"
+    title: "AIOps & Telemetry Forecasting"
+    description: "Temporal Transformer models pretrained on Azure VM data and fine-tuned on Alibaba container workloads for real-time CPU/GPU/memory prediction and anomaly detection."
+  - icon: "🏭"
+    title: "Digital Manufacturing"
+    description: "Decentralized architectures for pharmaceutical certification and industrial data traceability — from smart contract design to compliance-ready data exchange in regulated environments."
+
+experience:
+  - period: "Nov 2025 – Present · Pisa, Italy"
+    role: "National PhD Programme in AI for Society"
+    place: "MUR — Universities of Messina & Pisa · EQF Level 8"
+    description: "Researching cloud-edge AI, spatio-temporal forecasting, orbital federated learning, and blockchain-based certification of AI processes. Affiliated with FCRLab @ UniME."
+
+  - period: "Jul 2025 – Oct 2025 · Phoenix, USA"
+    role: "Blockchain Architect"
+    place: "International research collaboration"
+    description: "Designed and implemented blockchain integration within a real-time pharmaceutical production environment, enhancing traceability, data integrity and process transparency across complex workflows. Built decentralized architectures and smart contracts for secure, compliant, and auditable data exchange in regulated settings."
+
+  - period: "Mar 2025 – Oct 2025 · Messina, Italy"
+    role: "Research Fellow — European Project Neurokit2E"
+    place: "University of Messina, FCRLab"
+    description: "Scientific research on ML for edge/embedded devices: quantization, pruning (PyTorch, TensorFlow-Keras), anomaly detection via Transformer models and KAN (Kolmogorov–Arnold Networks)."
+
+  - period: "Jul 2024 – Present · Boston, USA"
+    role: "Blockchain Developer / Architect"
+    place: "Circular Protocol"
+    description: "Designed the SDK (Java, PHP, Python, JS/Node.js) for the Circular Protocol Layer 1 blockchain, enabling transaction management, smart contract lifecycle, on-chain read/write and network monitoring. Contributed to decentralized architecture design for dApp integration and traditional backend systems. Built iStamp.app — a web portal for blockchain-based data notarization and timestamping with cryptographic hash, digital signature, and public verification."
+
+  - period: "Mar 2024 – Aug 2024 · Messina, Italy"
+    role: "Research Fellow — Smart Cities & MaaS"
+    place: "University of Messina, FCRLab"
+    description: "Distributed deployment of SQL/NoSQL databases with Docker and Kubernetes, backend/frontend (Drupal), API development in Go and PHP, and Flutter mobile app maintenance for public transportation MaaS systems."
+
+  - period: "2023 – 2025 · Messina, Italy"
+    role: "MSc in Data Science — 110/110 Cum Laude"
+    place: "University of Messina · EQF Level 7"
+    description: "Thesis: *Real-time digital regulatory approval framework for Agile Pharmaceutical Manufacturing using AI and Blockchain.* Courses: Advanced ML, Big Data, Blockchain & Data Security, HPC, Bio-inspired AI, Bioinformatics."
+
+  - period: "Oct 2022 – Jan 2023 · Messina, Italy"
+    role: "Curricular Internship"
+    place: "University of Messina — MIFT Department"
+    description: "Project: Collision detection and prevention systems for autonomous robotic machines."
+
+  - period: "Oct 2018 – Aug 2022 · Messina, Italy"
+    role: "Fullstack Developer & Project Manager"
+    place: "Mifra SRL"
+    description: "Led a small IT division. Stack: Swift/SwiftUI (iOS), Laravel/PHP, JavaScript, MySQL, MongoDB, Python, Bash on Raspberry Pi, Docker, Kubernetes, VMware ESXi. Managed team coordination via Slack, JetBrains Space, Nextcloud."
+
+  - period: "2020 – 2023 · Messina, Italy"
+    role: "BSc in Computer Science — 108/110"
+    place: "University of Messina · EQF Level 6"
+    description: "Thesis: *Reinforcement Learning for autonomous driving — comparison of PPO, DQN and DDQN in 2D and 3D environments.* Courses: AI, OOP, Distributed Systems, Networks, Algorithms & Data Structures, OS, Web & Mobile."
+
+publications:
+  - number: "01"
+    title: "A Serverless Quantization-as-a-Service Model to Run Compression Jobs for Edge Intelligence"
+    authors: "De Novi D., Dell'Acqua P., Carnevale L., Fazio M., Villari M."
+    venue: "IEEE ISCC 2025"
+    tags: ["Edge AI", "FaaS", "Quantization"]
+  - number: "02"
+    title: "Predictive Resource Management in the Computing Continuum: Transfer Learning from Virtual Machines to Containers using Transformers"
+    authors: "De Novi D., Carnevale L., Balouek D., Parashar M., Villari M."
+    venue: "IEEE/ACM UCC 2025"
+    tags: ["AIOps", "Transformers", "Transfer Learning"]
+  - number: "03"
+    title: "Evaluation of a Task Offloading Simulator for Edge Resource Management: Comparison of Reinforcement Learning Algorithms"
+    authors: "De Novi D., Carnevale L., Shikur K.A., Villari M."
+    venue: "ACM GreenSys Workshop 2026"
+    tags: ["Reinforcement Learning", "Edge", "Task Offloading"]
+
+service:
+  - role: "Technical Program Committee"
+    name: "IEEE ISCC 2026"
+    detail: "IEEE Symposium on Computers and Communications 2026"
+    link: ""
+  - role: "Technical Program Committee"
+    name: "BDCAT 2025"
+    detail: "IEEE/ACM International Conference on Big Data Computing, Applications and Technologies"
+    link: "https://bdcat-conference.org/"
+  - role: "Technical Program Committee"
+    name: "IEEE EAIS 2026"
+    detail: "IEEE International Conference on Evolving and Adaptive Intelligent Systems 2026"
+    link: ""
+  - role: "Reviewer"
+    name: "Elsevier Pattern Recognition"
+    detail: "International journal on pattern recognition and machine intelligence"
+    link: ""
+  - role: "Reviewer"
+    name: "IEEE Transactions on Mobile Computing"
+    detail: "IEEE flagship journal for mobile computing research"
+    link: ""
+
+conferences:
+  - date: "Jun 2026\nBaratti, IT"
+    name: "SoBigData Summer School 2026"
+    description: "Fourth International SoBigData Summer School — *Data Analysis and AI in Sport, Health and Wellbeing.* Four themed days covering healthcare AI, sport analytics, agentic AI, and privacy/fairness. Baratti (Piombino), Tuscany. Supported by the Italian National PhD Programme in AI."
+    tags: ["Participant"]
+    link: "https://summerschool2026.sobigdata.eu/"
+  - date: "Feb 2026\nTEMA GA"
+    name: "TEMA Project — General Assembly"
+    description: "Talk on intelligent scheduling systems on Kubernetes powered by machine learning for task optimization and carbon footprint reduction, during the General Assembly of the European TEMA Project."
+    tags: ["Invited Talk", "ML · Sustainability"]
+    link: ""
+  - date: "Dec 2025\nNeurokit2E GA"
+    name: "Neurokit2E — General Assembly"
+    description: "Talk on machine learning model reduction pipelines for the deployment of intelligent edge systems. Results of the quantization and pruning research within the EU Neurokit2E project."
+    tags: ["Invited Talk", "Edge AI · Compression"]
+    link: ""
+  - date: "2025\nIEEE ISCC"
+    name: "IEEE Symposium on Computers and Communications (ISCC) 2025"
+    description: "Paper presentation: *A Serverless Quantization-as-a-Service Model to Run Compression Jobs for Edge Intelligence.* Also serving on the Technical Program Committee for ISCC 2026."
+    tags: ["Paper Presentation", "TPC 2026"]
+    link: ""
+  - date: "2025\nIEEE/ACM UCC"
+    name: "IEEE/ACM International Conference on Utility and Cloud Computing (UCC '25)"
+    description: "Paper presentation: *Predictive Resource Management in the Computing Continuum: Transfer Learning from Virtual Machines to Containers using Transformers.*"
+    tags: ["Paper Presentation", "Cloud · AI"]
+    link: ""
+  - date: "Jul 2023\nMessina, IT"
+    name: "Discipulus Peloritanus — School of Excellence"
+    description: "Intensive programme on ICT and Innovative Transport Systems at the University of Messina. Focus on Intelligent Transport Systems, autonomous vehicles, smart roads and the normative and ethical implications of advanced mobility solutions."
+    tags: ["Excellence Programme"]
+    link: ""
+
+teaching:
+  cultore:
+    subject: "Algoritmi e Strutture Dati"
+    institution: "University of Messina — Department of Engineering"
+    period: "A.A. 2026/27 – 2028/29"
+    description: "Recognised expert for three consecutive academic years. Involved in teaching support, examination commissions, and student tutoring."
+
+  thesis_students:
+    - year: "2025"
+      student: "Student Name"
+      topic: "Thesis topic — replace with actual student name and topic."
+      degree: "MSc"
+    - year: "2025"
+      student: "Student Name"
+      topic: "Thesis topic — replace with actual student name and topic."
+      degree: "BSc"
+    # Add more students below following the same format:
+    # - year: "2026"
+    #   student: "Firstname Lastname"
+    #   topic: "Your topic here"
+    #   degree: "MSc"
+
+skills:
+  - group: "Machine Learning"
+    tags: ["PyTorch", "TensorFlow", "Transformers", "KAN Networks", "Pruning", "Quantization"]
+  - group: "Distributed Systems"
+    tags: ["Kubernetes / K3S", "Docker", "OpenFaaS", "VMware ESXi", "Edge AI"]
+  - group: "Blockchain"
+    tags: ["Ethereum", "Solidity", "Smart Contracts", "Circular Protocol", "Web3.py"]
+  - group: "Languages"
+    tags: ["Python", "Java", "Swift / SwiftUI", "Go", "PHP / Laravel", "JavaScript", "Fortran 77"]
+  - group: "Data & Cloud"
+    tags: ["MongoDB", "Neo4J", "MySQL", "Raspberry Pi", "CoppeliaSim"]
+  - group: "Human Languages"
+    tags: ["Italian (native)", "English (C1)", "Latin (B1)", "French (A2)"]
+
+contact:
+  email: "dadenovi@unime.it"
+  telegram: "@dannydenovi"
+  telegram_url: "https://t.me/dannydenovi"
+  github: "github.com/dannydenovi"
+  github_url: "https://github.com/dannydenovi"
+  scholar_url: "https://scholar.google.com/citations?user=nkKuHI0AAAAJ"
+  fcrlab_url: "https://fcrlab.unime.it/author/danny-de-novi/"
+  project_name: "iStamp.app"
+  project_url: "https://istamp.app"
+  formspree_endpoint: "https://formspree.io/f/xpwryaod"  # replace with your Formspree endpoint
