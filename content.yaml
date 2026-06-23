@@ -192,7 +192,7 @@ conferences:
   name: "Neurokit2E - CEA Aidge Hackaton"
   description: "Hackaton on machine learning model reduction pipelines for the deployment of intelligent edge systems. Results of the quantization and pruning research within the EU Neurokit2E project."
   tags: ["Invited Talk", "Edge AI · Compression"]
-  link: ""
+  link: "https://deepgreen.ai/les-actualites/join-us-for-the-eclipse-aidge-developer-days-in-paris-january-22-23-2026"
 - date: "Jul 2023\nMessina, IT"
   name: "Discipulus Peloritanus — School of Excellence"
   description: "Intensive programme on ICT and Innovative Transport Systems at the University of Messina. Focus on Intelligent Transport Systems, autonomous vehicles, smart roads and the normative and ethical
