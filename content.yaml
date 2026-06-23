@@ -187,12 +187,12 @@ conferences:
     Baratti (Piombino), Tuscany. Supported by the Italian National PhD Programme in AI."
   tags: ["Participant"]
   link: "https://summerschool2026.sobigdata.eu/"
-- date: "Feb 2026\nTEMA GA"
+- date: "Feb 2026\nLinz, AT"
   name: "TEMA Project — General Assembly"
   description: "Talk on intelligent scheduling systems on Kubernetes powered by machine learning for task optimization and carbon footprint reduction, during the General Assembly of the European TEMA Project."
   tags: ["Invited Talk", "ML · Sustainability"]
   link: ""
-- date: "Janaury 2026\nAidge Hackaton"
+- date: "Janaury 2026\nParis, FR"
   name: "Neurokit2E - CEA Aidge Hackaton"
   description: "Hackaton on machine learning model reduction pipelines for the deployment of intelligent edge systems. Results of the quantization and pruning research within the EU Neurokit2E project."
   tags: ["Invited Talk", "Edge AI · Compression"]
