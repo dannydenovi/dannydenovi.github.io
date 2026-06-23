@@ -122,6 +122,7 @@ function buildConferences(items) {
 }
 
 function buildThesisStudents(students) {
+  if (!students?.length) return '';
   return students.map(s => `
           <div class="thesis-card">
             <div class="thesis-year">${s.year}</div>
