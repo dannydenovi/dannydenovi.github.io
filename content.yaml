@@ -6,7 +6,7 @@
 meta:
   name: "Danny De Novi"
   title: "PhD Researcher in AI & Blockchain"
-  description: "Building the intersection of trustworthy AI, blockchain certification, and distributed edge intelligence — now extending to orbital federated learning."
+  description: "PhD researcher in AI for Society at UniME & Pisa — working on orbital federated learning, blockchain-certified AI pipelines, and ML model compression for edge intelligence."
   url: "https://dannydenovi.github.io"   # change to your actual GitHub Pages URL
   semantic_scholar_id: "2401678720"               # paste your Semantic Scholar author ID here (see scripts/sync_scholar.py)
 
@@ -14,15 +14,15 @@ hero:
   eyebrow: "PhD Researcher · University of Messina & Pisa"
   name_line1: "Danny"
   name_line2: "De Novi"
-  subtitle: "Building the intersection of trustworthy AI, blockchain certification, and distributed edge intelligence — now extending to orbital federated learning."
+  subtitle: "PhD researcher in AI for Society at UniME & Pisa — working on orbital federated learning, blockchain-certified AI pipelines, and ML model compression for edge intelligence."
   chips:
   - Machine Learning
   - Blockchain
   - Edge Computing
-  - Federated Learning
+  - Orbital Federated Learning
   - Cloud-Edge Continuum
-  - Orbital FL
   - FaaS
+  - Trustworthy AI
 
 about:
   bio:
@@ -33,7 +33,6 @@ about:
   - "My research lives at the crossroads of machine learning optimization, blockchain-based data certification, and trustworthy AI. I'm currently extending this work toward **Orbital Federated Learning**
     — applying distributed learning paradigms to satellite and space-edge nodes to enable verifiable AI in constrained orbital environments."
   - "In 2025 this work was funded by the European project **Neurokit2E**. I also collaborate with **Circular Protocol** (Boston) on blockchain certification for decentralised manufacturing workflows."
-  - "Born 29 Aug 2000. Based in Messina, Italy. Drone pilot (EU A1/A3). Pianist and guitarist."
   links:
   - label: "dadenovi@unime.it"
     url: "mailto:dadenovi@unime.it"
@@ -189,20 +188,10 @@ conferences:
   description: "Talk on intelligent scheduling systems on Kubernetes powered by machine learning for task optimization and carbon footprint reduction, during the General Assembly of the European TEMA Project."
   tags: ["Invited Talk", "ML · Sustainability"]
   link: ""
-- date: "Dec 2025\nNeurokit2E GA"
-  name: "Neurokit2E — General Assembly"
-  description: "Talk on machine learning model reduction pipelines for the deployment of intelligent edge systems. Results of the quantization and pruning research within the EU Neurokit2E project."
+- date: "Janaury 2026\nAidge Hackaton"
+  name: "Neurokit2E - CEA Aidge Hackaton"
+  description: "Hackaton on machine learning model reduction pipelines for the deployment of intelligent edge systems. Results of the quantization and pruning research within the EU Neurokit2E project."
   tags: ["Invited Talk", "Edge AI · Compression"]
-  link: ""
-- date: "2025\nIEEE ISCC"
-  name: "IEEE Symposium on Computers and Communications (ISCC) 2025"
-  description: "Paper presentation: *A Serverless Quantization-as-a-Service Model to Run Compression Jobs for Edge Intelligence.* Also serving on the Technical Program Committee for ISCC 2026."
-  tags: ["Paper Presentation", "TPC 2026"]
-  link: ""
-- date: "2025\nIEEE/ACM UCC"
-  name: "IEEE/ACM International Conference on Utility and Cloud Computing (UCC '25)"
-  description: "Paper presentation: *Predictive Resource Management in the Computing Continuum: Transfer Learning from Virtual Machines to Containers using Transformers.*"
-  tags: ["Paper Presentation", "Cloud · AI"]
   link: ""
 - date: "Jul 2023\nMessina, IT"
   name: "Discipulus Peloritanus — School of Excellence"
@@ -219,14 +208,6 @@ teaching:
     description: "Recognised expert for three consecutive academic years. Involved in teaching support, examination commissions, and student tutoring."
 
   thesis_students:
-  - year: "2025"
-    student: "Student Name"
-    topic: "Thesis topic — replace with actual student name and topic."
-    degree: "MSc"
-  - year: "2025"
-    student: "Student Name"
-    topic: "Thesis topic — replace with actual student name and topic."
-    degree: "BSc"
     # Add more students below following the same format:
     # - year: "2026"
     #   student: "Firstname Lastname"
@@ -235,17 +216,17 @@ teaching:
 
 skills:
 - group: "Machine Learning"
-  tags: ["PyTorch", "TensorFlow", "Transformers", "KAN Networks", "Pruning", "Quantization"]
+  tags: ["PyTorch", "TensorFlow", "Transformers", "Pruning", "Quantization"]
 - group: "Distributed Systems"
   tags: ["Kubernetes / K3S", "Docker", "OpenFaaS", "VMware ESXi", "Edge AI"]
 - group: "Blockchain"
-  tags: ["Ethereum", "Solidity", "Smart Contracts", "Circular Protocol", "Web3.py"]
+  tags: ["Smart Contracts", "Circular Protocol", "Ethereum", "Solidity", "Web3.py"]
 - group: "Languages"
   tags: ["Python", "Java", "Swift / SwiftUI", "Go", "PHP / Laravel", "JavaScript", "Fortran 77"]
 - group: "Data & Cloud"
-  tags: ["MongoDB", "Neo4J", "MySQL", "Raspberry Pi", "CoppeliaSim"]
+  tags: ["MongoDB", "Neo4J", "MySQL", "SBCs", "CoppeliaSim"]
 - group: "Human Languages"
-  tags: ["Italian (native)", "English (C1)", "Latin (B1)", "French (A2)"]
+  tags: ["Italian (native)", "English (C1)"]
 
 contact:
   email: "dadenovi@unime.it"
