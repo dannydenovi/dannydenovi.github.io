@@ -604,7 +604,7 @@ const html = `<!DOCTYPE html>
     e.preventDefault();const btn=form.querySelector('button[type=submit]');
     btn.textContent='Sending…';btn.disabled=true;
     try{const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
-      if(res.ok){status.className='form-status success';status.textContent='✓ Message sent! I\'ll get back to you soon.';form.reset();}else throw new Error();}
+      if(res.ok){status.className='form-status success';status.textContent="✓ Message sent! I'll get back to you soon.";form.reset();}else throw new Error();}
     catch{status.className='form-status error';status.textContent='✗ Something went wrong. Please email ${contact.email} directly.';}
     btn.textContent='Send Message →';btn.disabled=false;});
 })();
