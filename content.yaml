@@ -8,6 +8,7 @@ meta:
   title: "PhD Researcher in AI & Blockchain"
   description: "Building the intersection of trustworthy AI, blockchain certification, and distributed edge intelligence — now extending to orbital federated learning."
   url: "https://dannydenovi.github.io"   # change to your actual GitHub Pages URL
+  semantic_scholar_id: ""               # paste your Semantic Scholar author ID here (see scripts/sync_scholar.py)
 
 hero:
   eyebrow: "PhD Researcher · University of Messina & Pisa"

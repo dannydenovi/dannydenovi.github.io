@@ -1,4 +1,4 @@
-name: Sync Publications from Google Scholar
+name: Sync Publications from Semantic Scholar
 
 on:
   schedule:
@@ -22,7 +22,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Python dependencies
-        run: pip install scholarly ruamel.yaml
+        run: pip install requests ruamel.yaml
 
       - name: Sync publications
         run: python scripts/sync_scholar.py
@@ -33,6 +33,6 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git diff --quiet content.yaml || (
             git add content.yaml &&
-            git commit -m "chore: sync publications from Google Scholar" &&
+            git commit -m "chore: sync publications from Semantic Scholar" &&
             git push
           )
