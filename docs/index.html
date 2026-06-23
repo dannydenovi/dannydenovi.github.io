@@ -113,6 +113,14 @@
   .pub-meta { font-size: .8rem; color: var(--gray); margin-bottom: .3rem; }
   .pub-meta span { color: var(--cyan); font-family: var(--fm); font-size: .75rem; }
   .pub-note { font-size: .72rem; font-family: var(--fm); background: rgba(0,229,255,.1); color: var(--cyan); border: 1px solid rgba(0,229,255,.25); border-radius: 4px; padding: .1rem .5rem; display: inline-block; margin-right: .3rem; }
+  .pub-tags-row { margin-bottom: .4rem; }
+  .pub-actions { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .5rem; }
+  .pub-btn { font-size: .72rem; font-family: var(--fm); padding: .22rem .65rem; border-radius: 4px; cursor: pointer; text-decoration: none; transition: all .2s; display: inline-flex; align-items: center; line-height: 1.4; }
+  .pub-btn-link { background: rgba(108,59,245,.1); color: var(--violet-lt); border: 1px solid rgba(108,59,245,.3); }
+  .pub-btn-link:hover { background: rgba(108,59,245,.22); border-color: var(--violet); color: var(--white); }
+  .pub-btn-copy { background: rgba(0,229,255,.07); color: var(--cyan); border: 1px solid rgba(0,229,255,.25); }
+  .pub-btn-copy:hover { background: rgba(0,229,255,.16); }
+  .pub-btn-copy.copied { color: #4ade80; border-color: rgba(74,222,128,.4); background: rgba(74,222,128,.08); }
 
   /* SERVICE */
   .service-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); gap: 1.1rem; }
@@ -450,7 +458,13 @@
         <div class="pub-content">
           <div class="pub-title">A Serverless Quantization-as-a-Service Model to Run Compression Jobs for Edge Intelligence</div>
           <div class="pub-meta">De Novi D., Dell'Acqua P., Carnevale L., Fazio M., Villari M. &nbsp;<span>IEEE ISCC 2025</span></div>
-          <span class="pub-note">Edge AI</span> <span class="pub-note">FaaS</span> <span class="pub-note">Quantization</span>
+          <div class="pub-tags-row">
+            <span class="pub-note">Edge AI</span> <span class="pub-note">FaaS</span> <span class="pub-note">Quantization</span>
+          </div>
+          <div class="pub-actions">
+            
+            
+          </div>
         </div>
       </div>
       <div class="pub-card">
@@ -458,7 +472,13 @@
         <div class="pub-content">
           <div class="pub-title">Predictive Resource Management in the Computing Continuum: Transfer Learning from Virtual Machines to Containers using Transformers</div>
           <div class="pub-meta">De Novi D., Carnevale L., Balouek D., Parashar M., Villari M. &nbsp;<span>IEEE/ACM UCC 2025</span></div>
-          <span class="pub-note">AIOps</span> <span class="pub-note">Transformers</span> <span class="pub-note">Transfer Learning</span>
+          <div class="pub-tags-row">
+            <span class="pub-note">AIOps</span> <span class="pub-note">Transformers</span> <span class="pub-note">Transfer Learning</span>
+          </div>
+          <div class="pub-actions">
+            
+            
+          </div>
         </div>
       </div>
       <div class="pub-card">
@@ -466,7 +486,13 @@
         <div class="pub-content">
           <div class="pub-title">Evaluation of a Task Offloading Simulator for Edge Resource Management: Comparison of Reinforcement Learning Algorithms</div>
           <div class="pub-meta">De Novi D., Carnevale L., Shikur K.A., Villari M. &nbsp;<span>ACM GreenSys Workshop 2026</span></div>
-          <span class="pub-note">Reinforcement Learning</span> <span class="pub-note">Edge</span> <span class="pub-note">Task Offloading</span>
+          <div class="pub-tags-row">
+            <span class="pub-note">Reinforcement Learning</span> <span class="pub-note">Edge</span> <span class="pub-note">Task Offloading</span>
+          </div>
+          <div class="pub-actions">
+            
+            
+          </div>
         </div>
       </div>
   </div>
@@ -793,6 +819,12 @@
   window.addEventListener('mousemove',e=>{const r=canvas.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
   window.addEventListener('resize',resize);resize();draw();
 })();
+function copyBibtex(btn){
+  const bib=btn.getAttribute('data-bib');
+  const done=()=>{btn.textContent='Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='Copy BibTeX';btn.classList.remove('copied');},2000);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(bib).then(done).catch(()=>fallback(bib,done));}else{fallback(bib,done);}
+  function fallback(text,cb){const ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;opacity:0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');cb();}catch(e){}document.body.removeChild(ta);}
+}
 (function(){
   const els=document.querySelectorAll('.fade-in');
   const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target);}});},{threshold:.08});
