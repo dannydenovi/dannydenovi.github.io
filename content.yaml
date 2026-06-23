@@ -125,16 +125,22 @@ publications:
     authors: "De Novi D., Dell'Acqua P., Carnevale L., Fazio M., Villari M."
     venue: "IEEE ISCC 2025"
     tags: ["Edge AI", "FaaS", "Quantization"]
+    url: ""
+    bibtex: ""
   - number: "02"
     title: "Predictive Resource Management in the Computing Continuum: Transfer Learning from Virtual Machines to Containers using Transformers"
     authors: "De Novi D., Carnevale L., Balouek D., Parashar M., Villari M."
     venue: "IEEE/ACM UCC 2025"
     tags: ["AIOps", "Transformers", "Transfer Learning"]
+    url: ""
+    bibtex: ""
   - number: "03"
     title: "Evaluation of a Task Offloading Simulator for Edge Resource Management: Comparison of Reinforcement Learning Algorithms"
     authors: "De Novi D., Carnevale L., Shikur K.A., Villari M."
     venue: "ACM GreenSys Workshop 2026"
     tags: ["Reinforcement Learning", "Edge", "Task Offloading"]
+    url: ""
+    bibtex: ""
 
 service:
   - role: "Technical Program Committee"

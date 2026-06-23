@@ -31,6 +31,15 @@ const ICONS = {
   scholar: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z"/></svg>`,
 };
 
+// ── attribute escaper (safe for data-* values) ──────────────────────────────
+function escAttr(s) {
+  return String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/\n/g, '&#10;')
+    .replace(/\r/g, '');
+}
+
 // ── section builders ─────────────────────────────────────────────────────────
 
 function buildHeroChips(chips) {
@@ -78,7 +87,13 @@ function buildPublications(pubs) {
         <div class="pub-content">
           <div class="pub-title">${p.title}</div>
           <div class="pub-meta">${p.authors} &nbsp;<span>${p.venue}</span></div>
-          ${p.tags.map(t => `<span class="pub-note">${t}</span>`).join(' ')}
+          <div class="pub-tags-row">
+            ${p.tags.map(t => `<span class="pub-note">${t}</span>`).join(' ')}
+          </div>
+          <div class="pub-actions">
+            ${p.url  ? `<a href="${escAttr(p.url)}" target="_blank" rel="noopener" class="pub-btn pub-btn-link">View Paper ↗</a>` : ''}
+            ${p.bibtex ? `<button class="pub-btn pub-btn-copy" onclick="copyBibtex(this)" data-bib="${escAttr(p.bibtex)}">Copy BibTeX</button>` : ''}
+          </div>
         </div>
       </div>`).join('');
 }
@@ -247,6 +262,14 @@ const html = `<!DOCTYPE html>
   .pub-meta { font-size: .8rem; color: var(--gray); margin-bottom: .3rem; }
   .pub-meta span { color: var(--cyan); font-family: var(--fm); font-size: .75rem; }
   .pub-note { font-size: .72rem; font-family: var(--fm); background: rgba(0,229,255,.1); color: var(--cyan); border: 1px solid rgba(0,229,255,.25); border-radius: 4px; padding: .1rem .5rem; display: inline-block; margin-right: .3rem; }
+  .pub-tags-row { margin-bottom: .4rem; }
+  .pub-actions { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .5rem; }
+  .pub-btn { font-size: .72rem; font-family: var(--fm); padding: .22rem .65rem; border-radius: 4px; cursor: pointer; text-decoration: none; transition: all .2s; display: inline-flex; align-items: center; line-height: 1.4; }
+  .pub-btn-link { background: rgba(108,59,245,.1); color: var(--violet-lt); border: 1px solid rgba(108,59,245,.3); }
+  .pub-btn-link:hover { background: rgba(108,59,245,.22); border-color: var(--violet); color: var(--white); }
+  .pub-btn-copy { background: rgba(0,229,255,.07); color: var(--cyan); border: 1px solid rgba(0,229,255,.25); }
+  .pub-btn-copy:hover { background: rgba(0,229,255,.16); }
+  .pub-btn-copy.copied { color: #4ade80; border-color: rgba(74,222,128,.4); background: rgba(74,222,128,.08); }
 
   /* SERVICE */
   .service-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); gap: 1.1rem; }
@@ -592,6 +615,12 @@ const html = `<!DOCTYPE html>
   window.addEventListener('mousemove',e=>{const r=canvas.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
   window.addEventListener('resize',resize);resize();draw();
 })();
+function copyBibtex(btn){
+  const bib=btn.getAttribute('data-bib');
+  const done=()=>{btn.textContent='Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='Copy BibTeX';btn.classList.remove('copied');},2000);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(bib).then(done).catch(()=>fallback(bib,done));}else{fallback(bib,done);}
+  function fallback(text,cb){const ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;opacity:0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');cb();}catch(e){}document.body.removeChild(ta);}
+}
 (function(){
   const els=document.querySelectorAll('.fade-in');
   const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target);}});},{threshold:.08});
