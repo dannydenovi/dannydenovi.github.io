@@ -155,6 +155,10 @@ publications:
   bibtex: "@inproceedings{villari2025a,\n  title = {A Serverless Quantization-as-a-Service Model to Run Compression Jobs for Edge Intelligence},\n  author = {Danny De Novi and Pierluigi Dell’Acqua and Lorenzo
     Carnevale and Maria Fazio and Massimo Villari},\n  year = {2025},\n  pages = {1-7},\n  publisher = {IEEE},\n}"
 service:
+- role: "Program Committee"
+  name: "GDSKA'26"
+  detail: "The 1st Workshop on Graph Data Science-Driven Knowledge Analysis"
+  link: "https://gdska.github.io/#1st-international-workshop-on-graph-data-science-driven-knowledge-analysis-gdska26"
 - role: "Technical Program Committee"
   name: "IEEE ISCC 2026"
   detail: "IEEE Symposium on Computers and Communications 2026"
