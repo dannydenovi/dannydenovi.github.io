@@ -1,0 +1,38 @@
+name: Sync Publications from Google Scholar
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # every Monday at 06:00 UTC
+  workflow_dispatch:        # run manually from the GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install scholarly ruamel.yaml
+
+      - name: Sync publications
+        run: python scripts/sync_scholar.py
+
+      - name: Commit updated content.yaml
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet content.yaml || (
+            git add content.yaml &&
+            git commit -m "chore: sync publications from Google Scholar" &&
+            git push
+          )
