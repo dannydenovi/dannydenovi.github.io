@@ -157,7 +157,7 @@ publications:
 service:
 - role: "Program Committee"
   name: "GDSKA'26"
-  detail: "The 1st Workshop on Graph Data Science-Driven Knowledge Analysis"
+  detail: "The 1st Workshop on Graph Data Science-Driven Knowledge Analysis. Co-located with IEEE eScience 2026"
   link: "https://gdska.github.io/#1st-international-workshop-on-graph-data-science-driven-knowledge-analysis-gdska26"
 - role: "Technical Program Committee"
   name: "IEEE ISCC 2026"
