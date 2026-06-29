@@ -132,28 +132,20 @@ experience:
 publications:
 - number: '01'
   title: 'Evaluation of a Task Offloading Simulator for Edge Resource Management: Comparison of Reinforcement Learning Algorithms'
-  authors: Danny De Novi and Lorenzo Carnevale and Khilud Abdulaziz Shikur and Massimo Villari
-  venue: '2026'
+  authors: Danny De Novi, Lorenzo Carnevale, Khilud Abdulaziz Shikur, Massimo Villari
+  venue: GreenSys 2026
   tags: ["Reinforcement Learning", "Edge", "Task Offloading"]
-  url: https://dl.acm.org/doi/abs/10.1145/3802973.3804459
-  bibtex: "@inproceedings{villari2026evaluation,\n  title = {Evaluation of a Task Offloading Simulator for Edge Resource Management: Comparison of Reinforcement Learning Algorithms},\n  author = {Danny
-    De Novi and Lorenzo Carnevale and Khilud Abdulaziz Shikur and Massimo Villari},\n  year = {2026},\n  pages = {19-24},\n}"
+  url: https://doi.org/10.1145/3802973.3804459
+  bibtex: "@Inproceedings{Novi2026EvaluationOA,\n author = {Danny De Novi and Lorenzo Carnevale and Khilud Abdulaziz Shikur and Massimo Villari},\n booktitle = {GreenSys},\n title = {Evaluation of a Task
+    Offloading Simulator for Edge Resource Management: Comparison of Reinforcement Learning Algorithms},\n year = {2026}\n}"
 - number: '02'
   title: 'Predictive Resource Management in the Computing Continuum: Transfer Learning from Virtual Machines to Containers using Transformers'
-  authors: Danny De Novi and Lorenzo Carnevale and Daniel Balouek and Manish Parashar and Massimo Villari
-  venue: '2025'
+  authors: Danny De Novi, Lorenzo Carnevale, Daniel Balouek, Manish Parashar, Massimo Villari
+  venue: International Conference on Utility and Cloud Computing 2025
   tags: ["AIOps", "Transformers", "Transfer Learning"]
-  url: https://dl.acm.org/doi/abs/10.1145/3773274.3774856
-  bibtex: "@inproceedings{villari2025predictive,\n  title = {Predictive Resource Management in the Computing Continuum: Transfer Learning from Virtual Machines to Containers using Transformers},\n  author
-    = {Danny De Novi and Lorenzo Carnevale and Daniel Balouek and Manish Parashar and Massimo Villari},\n  year = {2025},\n  pages = {1-8},\n}"
-- number: '03'
-  title: A Serverless Quantization-as-a-Service Model to Run Compression Jobs for Edge Intelligence
-  authors: Danny De Novi and Pierluigi Dell’Acqua and Lorenzo Carnevale and Maria Fazio and Massimo Villari
-  venue: '2025'
-  tags: ["Edge AI", "FaaS", "Quantization"]
-  url: https://ieeexplore.ieee.org/abstract/document/11326460/
-  bibtex: "@inproceedings{villari2025a,\n  title = {A Serverless Quantization-as-a-Service Model to Run Compression Jobs for Edge Intelligence},\n  author = {Danny De Novi and Pierluigi Dell’Acqua and Lorenzo
-    Carnevale and Maria Fazio and Massimo Villari},\n  year = {2025},\n  pages = {1-7},\n  publisher = {IEEE},\n}"
+  url: https://doi.org/10.1145/3773274.3774856
+  bibtex: "@Inproceedings{Novi2025PredictiveRM,\n author = {Danny De Novi and Lorenzo Carnevale and Daniel Balouek and Manish Parashar and Massimo Villari},\n booktitle = {International Conference on Utility
+    and Cloud Computing},\n title = {Predictive Resource Management in the Computing Continuum: Transfer Learning from Virtual Machines to Containers using Transformers},\n year = {2025}\n}"
 service:
 - role: "Program Committee"
   name: "GDSKA'26"
